@@ -1,0 +1,23 @@
+version: '3'
+
+
+services:
+  db01:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=6226_dB
+      - POSTGRES_DB=postgres
+
+  web:
+    build: .
+    command: ["./run_web.sh"]
+    volumes:
+      - .:/webapps
+    ports:
+      - "8000:8000"
+    links:
+      - db01
+    depends_on:
+      - db01
+

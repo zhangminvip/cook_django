@@ -25,7 +25,7 @@ SECRET_KEY = '-33xb#&ql)w+v#&0(v_#b+#_15k(iw7eu8-3y6gjz7yr3_e*m='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0',]
 
 
 # Application definition
@@ -74,13 +74,28 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+
+# local database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'test',
+#         'USER':'postgres',
+#         'PASSWORD':'123456',
+#         'HOST':'127.0.0.1',
+#         'PORT':'5432'
+#     }
+# }
+
+
+# docker database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
+        'NAME': 'postgres',
         'USER':'postgres',
-        'PASSWORD':'123456',
-        'HOST':'127.0.0.1',
+        'PASSWORD':'6226_dB',
+        'HOST':'db01',
         'PORT':'5432'
     }
 }
